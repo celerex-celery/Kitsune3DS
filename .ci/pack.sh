@@ -35,42 +35,20 @@ function pack_artifacts() {
         ARCHIVE_NAME="$REV_NAME"
     fi
 
-    # Create .zip/.tar.gz
-    if [ "$OS" = "windows" ] && [ "$TARGET" != "mxe" ]; then
+    # Create .zip
+    if [ "$TARGET" != "mxe" ]; then
         ARCHIVE_FULL_NAME="$ARCHIVE_NAME.zip"
         powershell Compress-Archive "$REV_NAME" "$ARCHIVE_FULL_NAME"
-    elif [ "$OS" = "android" ] || [ "$OS" = "macos" ] || [ "$TARGET" = "mxe" ]; then
+    else
         ARCHIVE_FULL_NAME="$ARCHIVE_NAME.zip"
         zip -r "$ARCHIVE_FULL_NAME" "$REV_NAME"
-    else
-        ARCHIVE_FULL_NAME="$ARCHIVE_NAME.tar.gz"
-        tar czvf "$ARCHIVE_FULL_NAME" "$REV_NAME"
     fi
     mv "$ARCHIVE_FULL_NAME" artifacts/
      # Clean up created rev artifacts directory.
     rm -rf "$REV_NAME"
 }
 
-if [ -n "$UNPACKED" ]; then
-    # Copy the artifacts to be uploaded unpacked.
-    for ARTIFACT in build/bundle/*; do
-        FILENAME=$(basename "$ARTIFACT")
-        EXTENSION="${FILENAME##*.}"
-
-        # TODO: Deduplicate
-        REV_NAME="kitsune3ds-$OS-$TARGET-$GITDATE-$GITREV"
-
-        # Determine the name of the release being built.
-        if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-            RELEASE_NAME=kitsune3ds-$GITHUB_REF_NAME
-            REV_NAME="kitsune3ds-$OS-$TARGET-$GITHUB_REF_NAME"
-        else
-            RELEASE_NAME=kitsune3ds-head
-        fi
-
-        mv "$ARTIFACT" "artifacts/$REV_NAME.$EXTENSION"
-    done
-elif [ -n "$PACK_INDIVIDUALLY" ]; then
+if [ -n "$PACK_INDIVIDUALLY" ]; then
     # Pack and upload the artifacts one-by-one.
     for ARTIFACT in build/bundle/*; do
         TARGET=$(basename "$ARTIFACT")

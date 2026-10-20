@@ -22,19 +22,20 @@ include(DownloadExternals)
 include(CMakeDependentOption)
 
 project(citra LANGUAGES C CXX ASM)
+
+# Kitsune3DS is a Windows-only build. Other platforms are not supported.
+if (NOT WIN32)
+    message(FATAL_ERROR
+        "Kitsune3DS only supports Windows.\n"
+        "Configure this project with the MSVC or MXE toolchain on a Windows host.")
+endif()
+
 # must be invoked after project() command when using CMAKE_TOOLCHAIN_FILE
 include(FindPkgConfig)
-if (CMAKE_SYSTEM_NAME STREQUAL "Darwin" OR CMAKE_SYSTEM_NAME STREQUAL "iOS")
-    enable_language(OBJC OBJCXX)
-endif()
 
 if (CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux" AND MINGW)
     string(TOLOWER ${LIBTYPE} LIBTYPE_LOWER)
     set(CMAKE_AR x86_64-w64-mingw32.${LIBTYPE_LOWER}-gcc-ar)
-endif()
-
-if (BSD STREQUAL "OpenBSD")
-    add_link_options(-z wxneeded)
 endif()
 
 option(ENABLE_LIBRETRO "Build as a LibRetro core" OFF)
@@ -43,36 +44,6 @@ option(ENABLE_LIBRETRO "Build as a LibRetro core" OFF)
 # Make sure we default to Release build type always, unless the generator has custom types.
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build." FORCE)
-endif()
-
-if (APPLE AND NOT ENABLE_LIBRETRO)
-    # Silence warnings on empty objects, for example when platform-specific code is #ifdef'd out.
-    set(CMAKE_C_ARCHIVE_CREATE "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
-    set(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>")
-    set(CMAKE_C_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
-    set(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>")
-
-    if (IOS)
-        # Minimum iOS 14
-        set(CMAKE_OSX_DEPLOYMENT_TARGET "14.0")
-
-        # Enable searching CMAKE_PREFIX_PATH for bundled dependencies.
-        set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY BOTH)
-        set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE BOTH)
-        set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE BOTH)
-    else()
-        # Minimum macOS 13
-        set(CMAKE_OSX_DEPLOYMENT_TARGET "13.4")
-
-        # Catch compiler issue on AppleClang versions below 15.0
-        # TODO: Remove this check when we drop macOS 13 Ventura
-        if (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" AND
-            CMAKE_CXX_COMPILER_VERSION VERSION_LESS 15.0)
-            message(FATAL_ERROR "AppleClang 15.0 or later is required due to a compiler bug in earlier versions.\n"
-                                "Current version: ${CMAKE_CXX_COMPILER_VERSION}\n"
-                                "After updating, delete 'CMakeCache.txt' in the build directory.")
-        endif()
-    endif()
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
@@ -97,13 +68,7 @@ else()
     set(DEFAULT_ENABLE_LTO OFF)
 endif()
 
-# Disable OpenGL by default on Linux aarch64.
-# Some aarch64 devices running Linux don't support OpenGL, and users may encounter issues.
-if (LINUX AND CMAKE_SYSTEM_PROCESSOR STREQUAL aarch64)
-    set(DEFAULT_ENABLE_OPENGL OFF)
-else()
-    set(DEFAULT_ENABLE_OPENGL ON)
-endif()
+set(DEFAULT_ENABLE_OPENGL ON)
 
 # Track which options were explicitly set by the user (for libretro conflict detection)
 set(_LIBRETRO_INCOMPATIBLE_OPTIONS
@@ -407,10 +372,6 @@ if (ENABLE_QT)
 
     find_package(Qt6 REQUIRED COMPONENTS Widgets Multimedia Concurrent)
 
-    if (UNIX AND NOT APPLE)
-        find_package(Qt6 REQUIRED COMPONENTS DBus)
-    endif()
-
     if (ENABLE_QT_TRANSLATION)
         find_package(Qt6 REQUIRED COMPONENTS LinguistTools)
     endif()
@@ -442,39 +403,10 @@ find_package(tsl-robin-map QUIET)
 # Platform-specific library requirements
 # ======================================
 
-if (APPLE)
-    if (NOT IOS)
-        # Umbrella framework for everything GUI-related
-        find_library(COCOA_LIBRARY Cocoa REQUIRED)
-    endif()
-    find_library(AVFOUNDATION_LIBRARY AVFoundation REQUIRED)
-    find_library(IOSURFACE_LIBRARY IOSurface REQUIRED)
-    set(PLATFORM_LIBRARIES ${COCOA_LIBRARY} ${AVFOUNDATION_LIBRARY} ${IOSURFACE_LIBRARY})
-
-    if (ENABLE_VULKAN AND NOT ENABLE_LIBRETRO)
-        if (USE_SYSTEM_MOLTENVK)
-            find_library(MOLTENVK_LIBRARY MoltenVK REQUIRED)
-        else()
-            download_moltenvk()
-            if (IOS)
-                set(MOLTENVK_RELATIVE_LIBPATH "static/MoltenVK.xcframework/ios-arm64/libMoltenVK.a")
-            else()
-                set(MOLTENVK_RELATIVE_LIBPATH "dynamic/dylib/macOS/libMoltenVK.dylib")
-            endif()
-            set(MOLTENVK_LIBRARY "${CMAKE_BINARY_DIR}/externals/MoltenVK/MoltenVK/${MOLTENVK_RELATIVE_LIBPATH}")
-        endif()
-
-        message(STATUS "Using MoltenVK at ${MOLTENVK_LIBRARY}.")
-        set(PLATFORM_LIBRARIES ${PLATFORM_LIBRARIES} ${MOLTENVK_LIBRARY})
-    endif()
-elseif (WIN32)
-    set(PLATFORM_LIBRARIES winmm ws2_32)
-    if (MINGW)
-        # PSAPI is the Process Status API
-        set(PLATFORM_LIBRARIES ${PLATFORM_LIBRARIES} psapi imm32 version)
-    endif()
-elseif (CMAKE_SYSTEM_NAME MATCHES "^(Linux|kFreeBSD|GNU|SunOS)$")
-    set(PLATFORM_LIBRARIES rt)
+set(PLATFORM_LIBRARIES winmm ws2_32)
+if (MINGW)
+    # PSAPI is the Process Status API
+    set(PLATFORM_LIBRARIES ${PLATFORM_LIBRARIES} psapi imm32 version)
 endif()
 
 # Setup a custom clang-format target (if clang-format can be found) that will run
@@ -618,34 +550,13 @@ add_subdirectory(src)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT citra_meta)
 
 # Create target for outputting distributable bundles.
-# Not supported for mobile platforms as distributables are built differently.
-if (NOT ANDROID AND NOT IOS)
-    include(BundleTarget)
-    if (ENABLE_QT)
-        qt_bundle_target(citra_meta)
-    endif()
-    if (ENABLE_ROOM_STANDALONE)
-        bundle_target(citra_room_standalone)
-    endif()
+include(BundleTarget)
+if (ENABLE_QT)
+    qt_bundle_target(citra_meta)
+endif()
+if (ENABLE_ROOM_STANDALONE)
+    bundle_target(citra_room_standalone)
 endif()
 
 # Installation instructions
 # =========================
-
-# Install freedesktop.org metadata files, following those specifications:
-# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html
-# http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
-# http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
-if(ENABLE_QT AND UNIX AND NOT APPLE)
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.desktop"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}/share/applications"
-            RENAME "org.celerex_celery.Kitsune3DS.desktop")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.svg"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps"
-            RENAME "org.celerex_celery.Kitsune3DS.svg")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.png"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/512x512/apps"
-            RENAME "org.celerex_celery.Kitsune3DS.png")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/org.celerex_celery.Kitsune3DS.xml"
-            DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mime/packages")
-endif()

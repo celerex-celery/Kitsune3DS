@@ -11,44 +11,6 @@ if (BSD STREQUAL "NetBSD")
     disable_pax_mprotect(citra_meta)
 endif()
 
-if (APPLE)
-    set(DIST_DIR "../../dist/apple")
-    set(APPLE_RESOURCES
-        "${DIST_DIR}/kitsune3ds.icns"
-        "${DIST_DIR}/launch_logo.png"
-    )
-    if (IOS)
-        list(APPEND APPLE_RESOURCES "${DIST_DIR}/LaunchScreen.storyboard")
-    endif()
-    target_sources(citra_meta PRIVATE ${APPLE_RESOURCES})
-
-    # Define app bundle metadata.
-    include(GenerateBuildInfo)
-    set(SRC_DIR "${PROJECT_SOURCE_DIR}")
-    generate_build_info()
-    set_target_properties(citra_meta PROPERTIES
-        MACOSX_BUNDLE TRUE
-        MACOSX_BUNDLE_INFO_PLIST "${DIST_DIR}/Info.plist.in"
-        MACOSX_BUNDLE_BUNDLE_NAME "Kitsune3DS"
-        MACOSX_BUNDLE_GUI_IDENTIFIER "org.celerex-celery.kitsune3ds"
-        MACOSX_BUNDLE_BUNDLE_VERSION "${BUILD_VERSION}"
-        MACOSX_BUNDLE_SHORT_VERSION_STRING "${BUILD_FULLNAME}"
-        MACOSX_BUNDLE_LONG_VERSION_STRING "${BUILD_FULLNAME}"
-        MACOSX_BUNDLE_ICON_FILE "kitsune3ds.icns"
-        RESOURCE "${APPLE_RESOURCES}"
-    )
-
-    if (IOS)
-        set_target_properties(citra_meta PROPERTIES
-            # Have Xcode copy and sign MoltenVK into app bundle.
-            XCODE_EMBED_FRAMEWORKS "${MOLTENVK_LIBRARY}"
-            XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY YES
-            XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks"
-            # Support iPhone and iPad.
-            XCODE_ATTRIBUTE_TARGETED_DEVICE_FAMILY "1,2"
-        )
-    endif()
-endif()
 
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Linux" AND MINGW)
     # TODO: Do this for all executables, not just citra_meta
@@ -102,8 +64,4 @@ endif()
 if (ENABLE_QT AND MSVC)
     include(BundleTarget)
     qt_bundle_target_in_place(citra_meta)
-endif()
-
-if(UNIX AND NOT APPLE)
-    install(TARGETS citra_meta RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/bin")
 endif()

@@ -16,6 +16,9 @@ The project continues the legacy of **Citra** and is actively developed by a com
 
 # Installation
 
+> [!IMPORTANT]
+> **Kitsune3DS is a Windows-only project.** Only 64-bit Windows 10/11 is supported.
+
 ### Windows
 
 Kitsune3DS is available as both an installer and a zip archive.
@@ -25,56 +28,6 @@ Download the latest release in your preferred format from the [Releases](https:/
 If you are unsure of whether you want to use MSVC or MXE, use MXE.
 
 ---
-
-### MacOS
-
-To download a build that will work on all Macs, you can download the `macos-universal` build on the [Releases](https://github.com/celerex-celery/Kitsune3DS/releases) page.
-
-Alternatively, if you wish to download a build specifically for your Mac, you can choose either:
-
-- `macos-arm64` for Apple Silicon Macs
-- `macos-x86_64` for Intel Macs
-
----
-
-### Android
-
-There are two variants of Kitsune3DS available on Android, those being the Vanilla and Google Play builds.
-
-The Vanilla build is technically superior, as it uses an alternative method of file management which is faster, but isn't permitted on the Google Play store.
-
-For most users, we currently recommended downloading Kitsune3DS on Android via the Google Play Store for ease of accessibility:
-
-<a href='https://play.google.com/store/apps/details?id=io.github.lime3ds.android'><img width='180' alt='Get it on Google Play' src='https://raw.githubusercontent.com/pioug/google-play-badges/06ccd9252af1501613da2ca28eaffe31307a4e6d/svg/English.svg'/></a>
-
-Alternatively, you can install the app using Obtainium, allowing you to use the Vanilla variant:
-1. Download and install Obtainium from [here](https://github.com/ImranR98/Obtainium/releases) (use the file named `app-release.apk`)
-2. Open Obtainium and click 'Add App'
-3. Type `https://github.com/celerex-celery/Kitsune3DS` into the 'App Source URL' section
-4. Click 'Add'
-5. Click 'Install', and select the preferred variant
-
-If you wish, you can also simply install the latest APK from the [Releases](https://github.com/celerex-celery/Kitsune3DS/releases) page.
-
-Keep in mind that you will not recieve automatic updates when installing via the APK.
-
----
-
-### Linux
-
-The recommended format for using Kitsune3DS on Linux is the Flatpak available on Flathub:
-
-<a href='https://flathub.org/apps/org.celerex_celery.Kitsune3DS'><img width='180' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/></a>
-
-Kitsune3DS is also available as an AppImage on the [Releases](https://github.com/celerex-celery/Kitsune3DS/releases) page.
-
-There are two variants of the AppImage available, those being `kitsune3ds.AppImage` and `kitsune3ds-wayland.AppImage`.
-
-If you are unsure of which variant to use, we recommend using the default `kitsune3ds.AppImage`. This is because of upstream issues in the Wayland ecosystem which may cause problems when running the emulator (e.g. [#1162](https://github.com/celerex-celery/Kitsune3DS/issues/1162)).
-
-Unless you explicitly require native Wayland support (e.g. you are running a system with no Xwayland), the non-Wayland variant is recommended.
-
-The Flatpak build of Kitsune3DS also has native Wayland support disabled by default. If you require native Wayland support, it can be enabled using [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal).
 
 # Build instructions
 
@@ -112,19 +65,11 @@ Below are the minimum requirements to run Kitsune3DS:
 ### Desktop
 
 ```
-Operating System: Windows 10 (64-bit), MacOS 13.4 (Ventura), or modern 64-bit Linux
-CPU: x86-64/ARM64 CPU (Windows for ARM not supported).
+Operating System: Windows 10/11 (64-bit)
+CPU: x86-64 CPU (Windows on ARM not supported).
      Single core performance higher than 1,800 on Passmark.
      SSE4.2 required on x86_64.
 GPU: OpenGL 4.3 or Vulkan 1.1 support
-Memory: 2GB of RAM. 4GB is recommended
-```
-### Android
-
-```
-Operating System: Android 10.0+ (64-bit)
-CPU: Snapdragon 835 SoC or better
-GPU: OpenGL ES 3.2 or Vulkan 1.1 support
 Memory: 2GB of RAM. 4GB is recommended
 ```
 

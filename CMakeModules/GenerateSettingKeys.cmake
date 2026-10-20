@@ -154,11 +154,6 @@ foreach(KEY IN ITEMS
 )
     set(SETTING_KEY_LIST "${SETTING_KEY_LIST}\n\"${KEY}\",")
     set(SETTING_KEY_DEFINITIONS "${SETTING_KEY_DEFINITIONS}\nDEFINE_KEY(${KEY})")
-    if (ANDROID)
-        string(REPLACE "_" "_1" KEY_JNI_ESCAPED ${KEY})
-        set(JNI_SETTING_KEY_DEFINITIONS "${JNI_SETTING_KEY_DEFINITIONS}
-            JNI_DEFINE_KEY(${KEY}, ${KEY_JNI_ESCAPED})")
-    endif()
 endforeach()
 
 # Qt exclusive setting keys
@@ -259,33 +254,6 @@ if (ENABLE_QT)
     endforeach()
 endif()
 
-# Android exclusive setting keys (standalone app only, not Android libretro)
-if (ANDROID)
-    foreach(KEY IN ITEMS
-        "expand_to_cutout_area"
-        "performance_overlay_enable"
-        "performance_overlay_show_fps"
-        "performance_overlay_show_frame_time"
-        "performance_overlay_show_speed"
-        "performance_overlay_show_app_ram_usage"
-        "performance_overlay_show_available_ram"
-        "performance_overlay_show_battery_temp"
-        "performance_overlay_background"
-        "use_frame_limit" # FIXME: DUPLICATE KEY (shared equivalent: frame_limit)
-        "android_hide_images"
-        "screen_orientation"
-        "performance_overlay_position"
-        "enable_secondary_display"
-        "combo_button_buttons"
-    )
-        string(REPLACE "_" "_1" KEY_JNI_ESCAPED ${KEY})
-        set(SETTING_KEY_LIST "${SETTING_KEY_LIST}\n\"${KEY}\",")
-        set(SETTING_KEY_DEFINITIONS "${SETTING_KEY_DEFINITIONS}\nDEFINE_KEY(${KEY})")
-        set(JNI_SETTING_KEY_DEFINITIONS "${JNI_SETTING_KEY_DEFINITIONS}
-            JNI_DEFINE_KEY(${KEY}, ${KEY_JNI_ESCAPED})")
-    endforeach()
-endif()
-
 # Libretro exclusive setting keys
 if (ENABLE_LIBRETRO)
     foreach(KEY IN ITEMS
@@ -315,7 +283,4 @@ string(SUBSTRING "${SETTING_KEY_LIST}" 0 ${SETTING_KEY_LIST_NEW_LENGTH} SETTING_
 configure_file("common/setting_keys.h.in" "common/setting_keys.h" @ONLY)
 if (ENABLE_QT)
     configure_file("citra_qt/setting_qkeys.h.in" "citra_qt/setting_qkeys.h" @ONLY)
-endif()
-if (ANDROID AND NOT ENABLE_LIBRETRO)
-    configure_file("android/app/src/main/jni/jni_setting_keys.cpp.in" "android/app/src/main/jni/jni_setting_keys.cpp" @ONLY)
 endif()

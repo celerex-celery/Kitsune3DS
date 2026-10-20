@@ -391,13 +391,6 @@ else()
     add_subdirectory(lodepng EXCLUDE_FROM_ALL)
 endif()
 
-# (xperia64): Only use libyuv on Android b/c of build issues on Windows and mandatory JPEG
-if(ANDROID)
-    # libyuv
-    add_subdirectory(libyuv EXCLUDE_FROM_ALL)
-    target_include_directories(yuv INTERFACE ./libyuv/include)
-endif()
-
 # OpenAL Soft
 if (ENABLE_OPENAL)
     if(USE_SYSTEM_OPENAL)
@@ -511,11 +504,6 @@ if (ENABLE_VULKAN)
             target_include_directories(vulkan-headers INTERFACE
                 /usr/X11R6/include)
         endif()
-    endif()
-
-    # adrenotools
-    if (ANDROID AND "arm64" IN_LIST ARCHITECTURE)
-        add_subdirectory(libadrenotools EXCLUDE_FROM_ALL)
     endif()
 endif()
 
