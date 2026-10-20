@@ -1,4 +1,4 @@
-// Copyright 2025-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2025-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -51,7 +51,7 @@ static std::optional<std::string> GetResponse(std::string url, std::string path)
 
 std::optional<std::string> UpdateChecker::GetLatestRelease(bool include_prereleases) {
     constexpr auto update_check_url = "http://api.github.com";
-    std::string update_check_path = "/repos/azahar-emu/azahar";
+    std::string update_check_path = "/repos/celerex-celery/Kitsune3DS";
     try {
         if (include_prereleases) { // This can return either a prerelease or a stable release,
                                    // whichever is more recent.

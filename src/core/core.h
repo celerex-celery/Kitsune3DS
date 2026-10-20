@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -107,7 +107,7 @@ public:
         ErrorArticDisconnected,               ///< Error when artic base disconnects
         ErrorN3DSApplication,        ///< Error launching New 3DS application in Old 3DS mode
         ErrorCoreExceptionRaised,    ///< The CPU emulation raised an exception
-        ErrorSavestateBuildMismatch, ///< Tried to load savestate from a different Azahar version
+        ErrorSavestateBuildMismatch, ///< Tried to load savestate from a different Kitsune3DS version
         ShutdownRequested,           ///< Emulated program requested a system shutdown
         ErrorUnknown                 ///< Any other error
     };

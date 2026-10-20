@@ -1,4 +1,4 @@
-// Copyright 2025-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2025-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -30,13 +30,13 @@ object CitraDirectoryUtils {
             return
         }
         if (directoryString == "" && limeDirectoryString != "") {
-            // Upgrade from Lime3DS to Azahar
+            // Upgrade from Lime3DS to Kitsune3DS
             PermissionsHandler.setCitraDirectory(limeDirectoryString)
             removeLimeDirectoryPreference()
             DirectoryInitialization.resetCitraDirectoryState()
             DirectoryInitialization.start()
         } else if (directoryString != "" && directoryString == limeDirectoryString) {
-            // Both the Lime3DS and Azahar directories are the same,
+            // Both the Lime3DS and Kitsune3DS directories are the same,
             // so delete the obsolete Lime3DS value.
             removeLimeDirectoryPreference()
         }

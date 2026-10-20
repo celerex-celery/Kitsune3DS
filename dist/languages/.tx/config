@@ -1,14 +1,14 @@
 [main]
 host = https://www.transifex.com
 
-[o:azahar:p:azahar:r:qt]
+[o:kitsune3ds:p:kitsune3ds:r:qt]
 file_filter = <lang>.ts
 source_file = en.ts
 source_lang = en
 type        = QT
 lang_map    = ca@valencia:ca_ES_valencia
 
-[o:azahar:p:azahar:r:android]
+[o:kitsune3ds:p:kitsune3ds:r:android]
 file_filter = ../../src/android/app/src/main/res/values-<lang>/strings.xml
 source_file = ../../src/android/app/src/main/res/values/strings.xml
 type = ANDROID

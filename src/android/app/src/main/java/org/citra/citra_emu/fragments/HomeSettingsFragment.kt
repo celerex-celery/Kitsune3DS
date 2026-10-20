@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -258,8 +258,8 @@ class HomeSettingsFragment : Fragment() {
             requireContext(),
             PermissionsHandler.citraDirectory
         )?.findFile("log")
-        val currentLog = logDirectory?.findFile("azahar_log.txt")
-        val oldLog = logDirectory?.findFile("azahar_log.old.txt")
+        val currentLog = logDirectory?.findFile("kitsune3ds_log.txt")
+        val oldLog = logDirectory?.findFile("kitsune3ds_log.old.txt")
 
         val intent = Intent().apply {
             action = Intent.ACTION_SEND

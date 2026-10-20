@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -91,7 +91,7 @@ object DirectoryInitialization {
         val dataPath = PermissionsHandler.citraDirectory
         if (dataPath.toString().isNotEmpty()) {
             userPath = dataPath.toString()
-            android.util.Log.d("[Azahar Frontend]", "[DirectoryInitialization] User Dir: $userPath")
+            android.util.Log.d("[Kitsune3DS Frontend]", "[DirectoryInitialization] User Dir: $userPath")
             return true
         }
         return false

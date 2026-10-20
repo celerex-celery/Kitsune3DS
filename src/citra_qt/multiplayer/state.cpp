@@ -1,4 +1,4 @@
-// Copyright 2018-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2018-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -44,7 +44,7 @@ MultiplayerState::MultiplayerState(Core::System& system_, QWidget* parent,
         announce_multiplayer_session = std::make_shared<Network::AnnounceMultiplayerSession>(
             validation.GetNickname()->validate(username, pos) == QValidator::State::Acceptable
                 ? username.toStdString()
-                : "Azahar");
+                : "Kitsune3DS");
     }
     announce_multiplayer_session->BindErrorCallback(
         [this](const Common::WebResult& result) { emit AnnounceFailed(result); });
@@ -300,7 +300,7 @@ void MultiplayerState::UpdateCredentials() {
     announce_multiplayer_session->UpdateCredentials(
         validation.GetNickname()->validate(username, pos) == QValidator::State::Acceptable
             ? username.toStdString()
-            : "Azahar");
+            : "Kitsune3DS");
 }
 
 void MultiplayerState::UpdateGameList(QStandardItemModel* game_list) {

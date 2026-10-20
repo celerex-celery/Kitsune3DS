@@ -1,4 +1,4 @@
-// Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -266,7 +266,7 @@ uintptr_t GetFramebuffer() {
 
 void retro_get_system_info(struct retro_system_info* info) {
     memset(info, 0, sizeof(*info));
-    info->library_name = "Azahar";
+    info->library_name = "Kitsune3DS";
     info->library_version = Common::g_build_fullname;
     info->need_fullpath = true;
     info->valid_extensions = "3ds|3dsx|z3dsx|elf|axf|cci|zcci|cxi|zcxi|app|bcci|bcxi";

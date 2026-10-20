@@ -1,4 +1,4 @@
-// Copyright 2017-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2017-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -59,7 +59,7 @@ static void PrintHelp(const char* argv0) {
 }
 
 static void PrintVersion() {
-    std::cout << "Azahar dedicated room " << Common::g_scm_branch << " " << Common::g_scm_desc
+    std::cout << "Kitsune3DS dedicated room " << Common::g_scm_branch << " " << Common::g_scm_desc
               << " Libnetwork: " << Network::network_version << std::endl;
 }
 

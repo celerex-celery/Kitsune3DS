@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Kitsune3DS Room
+Comment=Multiplayer room host for Kitsune3DS
+Icon=org.celerex_celery.Kitsune3DS
+TryExec=kitsune3ds-room
+Exec=kitsune3ds-room %f
+Categories=Game;Emulator;
+Keywords=3DS;Nintendo

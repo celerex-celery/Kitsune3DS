@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -271,7 +271,7 @@ static const char* android_config_default_file_content = (BOOST_HANA_STRING(R"(
 # Whether or not the emulation speed should be displayed as a percentage in the performance overlay
 )") DECLARE_KEY(performance_overlay_show_speed) BOOST_HANA_STRING(R"(
 
-# Whether or not Azahar's RAM usage should be displayed in the performance overlay
+# Whether or not Kitsune3DS's RAM usage should be displayed in the performance overlay
 )") DECLARE_KEY(performance_overlay_show_app_ram_usage) BOOST_HANA_STRING(R"(
 
 # Whether or not the amount of available RAM should be displayed in the performance overlay
@@ -364,7 +364,7 @@ static const char* android_config_default_file_content = (BOOST_HANA_STRING(R"(
 # 0 (default): Off, 1: On
 )") DECLARE_KEY(expand_to_cutout_area) BOOST_HANA_STRING(R"(
 
-# Allows Azahar to use externally connected displays
+# Allows Kitsune3DS to use externally connected displays
 # 0: Off, 1: On (default)
 )") DECLARE_KEY(enable_secondary_display) BOOST_HANA_STRING(R"(
 
@@ -544,11 +544,11 @@ static const char* android_config_default_file_content = (BOOST_HANA_STRING(R"(
 # Examples: *:Debug Kernel.SVC:Trace Service.*:Critical
 )") DECLARE_KEY(log_filter) BOOST_HANA_STRING(R"(
 
-# Whether or not Azahar-related images should be hidden from the Android gallery
+# Whether or not Kitsune3DS-related images should be hidden from the Android gallery
 # 0 (default): No, 1: Yes
 )") DECLARE_KEY(android_hide_images) BOOST_HANA_STRING(R"(
 
-# Whether or not an in-app notification should be displayed when an update is available for Azahar
+# Whether or not an in-app notification should be displayed when an update is available for Kitsune3DS
 # 0: No, 1 (default): Yes
 )") DECLARE_KEY(check_for_update_on_start) BOOST_HANA_STRING(R"(
 
@@ -569,7 +569,7 @@ static const char* android_config_default_file_content = (BOOST_HANA_STRING(R"(
 )") DECLARE_KEY(pica_debugging) BOOST_HANA_STRING(R"(
 
 # Flush log output on every message
-# Immediately commits the debug log to file. Use this if Azahar crashes and the log output is being cut.
+# Immediately commits the debug log to file. Use this if Kitsune3DS crashes and the log output is being cut.
 )") DECLARE_KEY(instant_debug_log) BOOST_HANA_STRING(R"(
 
 # Enable RPC server for scripting purposes. Allows accessing guest memory remotely.

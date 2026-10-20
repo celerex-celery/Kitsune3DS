@@ -12,9 +12,9 @@ fi
 
 echo "Tag name is: $TAG_NAME"
 
-docker build --no-cache -f docker/azahar-room/Dockerfile -t azahar-room:$TAG_NAME .
+docker build --no-cache -f docker/kitsune3ds-room/Dockerfile -t kitsune3ds-room:$TAG_NAME .
 mkdir -p build
-FILENAME="azahar-room-$TARGET-$TAG_NAME.dockerimage"
-docker save azahar-room:$TAG_NAME > build/$FILENAME
+FILENAME="kitsune3ds-room-$TARGET-$TAG_NAME.dockerimage"
+docker save kitsune3ds-room:$TAG_NAME > build/$FILENAME
 
 echo "DOCKER_IMAGE_PATH=artifacts/$FILENAME" >> $GITHUB_ENV

@@ -1,4 +1,4 @@
-// Copyright 2025-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2025-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -45,7 +45,7 @@ class UpdateUserDirectoryDialogFragment : DialogFragment() {
         val radioGroup = dialogView.findViewById<RadioGroup>(R.id.radioGroup)
 
         val choices = listOf(
-            getString(R.string.keep_current_azahar_directory) to Uri.parse(cd).path,
+            getString(R.string.keep_current_kitsune3ds_directory) to Uri.parse(cd).path,
             getString(R.string.use_prior_lime3ds_directory) to Uri.parse(ld).path
         )
         var selected = -1 // 0 = current, 1 = prior, -1 = no selection

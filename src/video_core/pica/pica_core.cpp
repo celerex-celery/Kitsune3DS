@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -214,7 +214,7 @@ static constexpr std::array<u32, 16> ExpandBitsToBytes = {
 };
 
 /**
- * This is the main loop for processing GPU command lists. On Azahar, it's the most
+ * This is the main loop for processing GPU command lists. On Kitsune3DS, it's the most
  * CPU expensive function (excluding the inner Draw calls) due to applications submitting
  * 10-50 command lists per frame, each with hundreds of commands in them. For this reason,
  * it is important that this function is well optimized to reduce the load on the CPU.

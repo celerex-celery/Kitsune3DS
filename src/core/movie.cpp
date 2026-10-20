@@ -1,4 +1,4 @@
-// Copyright 2017-2024 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2017-2024 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -469,7 +469,7 @@ Movie::ValidationResult Movie::ValidateHeader(const CTMHeader& header) const {
     std::string revision = fmt::format("{:02x}", fmt::join(header.revision, ""));
     if (revision != Common::g_scm_rev) {
         LOG_WARNING(
-            Movie, // Refers to Citra intentionally, movie may be from Citra instead of Azahar
+            Movie, // Refers to Citra intentionally, movie may be from Citra instead of Kitsune3DS
             "This movie was created on a different version of Citra, playback may desync");
         return ValidationResult::RevisionDismatch;
     }

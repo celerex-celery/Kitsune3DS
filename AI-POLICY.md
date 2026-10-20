@@ -1,6 +1,6 @@
-# Azahar Emulator AI Use Policy
+# Kitsune3DS Emulator AI Use Policy
 
-The following document outlines the acceptable and unacceptable uses of AI within the Azahar codebase.
+The following document outlines the acceptable and unacceptable uses of AI within the Kitsune3DS codebase.
 
 It describes whether or not submissions which were exposed to large language models (LLMs) such as ChatGPT, Claude, DeepSeek, and similar models would be capable of being merged in a pull request or otherwise utilized.
 
@@ -10,7 +10,7 @@ It describes whether or not submissions which were exposed to large language mod
 - ❌ Use of AI to write code for submission without disclosure is prohibited.
 - ❌ Use of AI to write the entirety/ a significant portion of a contribution is prohibited.
 - ❌ Use of AI to write snippets of code which are of a size such that they could reasonably be copyrightable is prohibited.
-- ❌ Use of AI to rewrite incompatibly-licensed code for submission to Azahar is prohibited.
+- ❌ Use of AI to rewrite incompatibly-licensed code for submission to Kitsune3DS is prohibited.
 - ❌ Use of AI to autonomously submit pull requests or issues is prohibited.
 
 Pull requests which violate these rules will be closed. Previously accepted submissions which are found to violate these rules will be retroactively removed from the codebase.

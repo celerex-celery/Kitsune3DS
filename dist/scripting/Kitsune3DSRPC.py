@@ -1,4 +1,4 @@
-# Copyright 2018-2026 Citra Emulator Project / Azahar Emulator Project
+# Copyright 2018-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 # Licensed under GPLv2 or any later version
 # Refer to the license.txt file included.
 
@@ -38,7 +38,7 @@ PERF_STATS_FIELDS = ("system_fps", "game_fps", "time_vblank_interval", "time_hle
 
 CITRA_PORT = 45987
 
-class AzaharRPC:
+class Kitsune3DSRPC:
     def __init__(self, address="127.0.0.1", port=CITRA_PORT, timeout=None, retries=3):
         """
         UDP may drop packets, and a lost request or reply would block forever.
@@ -261,4 +261,4 @@ class AzaharRPC:
 
 if "__main__" == __name__:
     import doctest
-    doctest.testmod(extraglobs={'c': AzaharRPC()})
+    doctest.testmod(extraglobs={'c': Kitsune3DSRPC()})

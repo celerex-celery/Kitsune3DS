@@ -1,4 +1,4 @@
-// Copyright 2017-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2017-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 

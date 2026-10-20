@@ -1,7 +1,7 @@
 .core-defs:
   variables:
     JNI_PATH: .
-    CORENAME: azahar
+    CORENAME: kitsune3ds
     API_LEVEL: 21
     BASE_CORE_ARGS: -DENABLE_LIBRETRO=ON -DENABLE_TESTS=OFF
     CORE_ARGS: ${BASE_CORE_ARGS}

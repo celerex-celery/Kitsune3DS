@@ -1,4 +1,4 @@
-// Copyright 2025 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2025 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -14,7 +14,7 @@ void Dummy() {
 
 } // namespace QtSwizzle
 
-@implementation QMetalLayer (AzaharPatch)
+@implementation QMetalLayer (Kitsune3DSPatch)
 
 + (void)load {
     static dispatch_once_t onceToken;

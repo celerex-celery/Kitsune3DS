@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -72,7 +72,7 @@ const std::vector<UISettings::Shortcut> QtConfig::default_hotkeys{ {
      {QStringLiteral("Debug Schedule All"),       QStringLiteral("Main Window"), {QStringLiteral(""),       QStringLiteral(""), Qt::ApplicationShortcut}},
      {QStringLiteral("Decrease 3D Factor"),       QStringLiteral("Main Window"), {QStringLiteral("Ctrl+-"), QStringLiteral(""), Qt::ApplicationShortcut}},
      {QStringLiteral("Decrease Speed Limit"),     QStringLiteral("Main Window"), {QStringLiteral("-"),      QStringLiteral(""), Qt::ApplicationShortcut}},
-     {QStringLiteral("Exit Azahar"),              QStringLiteral("Main Window"), {QStringLiteral("Ctrl+Q"), QStringLiteral(""), Qt::ApplicationShortcut}},
+     {QStringLiteral("Exit Kitsune3DS"),              QStringLiteral("Main Window"), {QStringLiteral("Ctrl+Q"), QStringLiteral(""), Qt::ApplicationShortcut}},
      {QStringLiteral("Exit Fullscreen"),          QStringLiteral("Main Window"), {QStringLiteral("Esc"),    QStringLiteral(""), Qt::ApplicationShortcut}},
      {QStringLiteral("Fullscreen"),               QStringLiteral("Main Window"), {QStringLiteral("F11"),    QStringLiteral(""), Qt::ApplicationShortcut}},
      {QStringLiteral("Increase 3D Factor"),       QStringLiteral("Main Window"), {QStringLiteral("Ctrl++"), QStringLiteral(""), Qt::ApplicationShortcut}},

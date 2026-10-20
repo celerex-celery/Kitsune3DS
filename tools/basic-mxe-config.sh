@@ -4,9 +4,9 @@
 # flags to build successfully. As such, this script is provided for
 # developer convenience.
 
-# This script assumes you are calling from inside the Azahar build enviroment.
+# This script assumes you are calling from inside the Kitsune3DS build enviroment.
 
-# Usage: [...]/tools/basic-mxe-config.sh <relative path to Azahar project root>
+# Usage: [...]/tools/basic-mxe-config.sh <relative path to Kitsune3DS project root>
 # e.g. `../tools/basic-mxe-config.sh ..`
 
 x86_64-w64-mingw32.shared-cmake $1 \

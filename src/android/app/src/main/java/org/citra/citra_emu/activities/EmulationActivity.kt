@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -95,7 +95,7 @@ class EmulationActivity : AppCompatActivity() {
 
     private fun ensureUserDirectoryReady(): Boolean {
         if (DirectoryInitialization.areCitraDirectoriesReady()) return true
-        CitraDirectoryUtils.attemptAutomaticUpdateDirectory() // Lime3DS -> Azahar
+        CitraDirectoryUtils.attemptAutomaticUpdateDirectory() // Lime3DS -> Kitsune3DS
         if (CitraDirectoryUtils.needToUpdateManually()) return false
         if (!PermissionsHandler.hasWriteAccess(applicationContext)) return false
         return DirectoryInitialization.start() ==

@@ -1,4 +1,4 @@
-// Copyright 2016-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2016-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -152,8 +152,8 @@ void ConfigureGeneral::SetConfiguration() {
 void ConfigureGeneral::ResetDefaults() {
     ui->button_reset_defaults->setEnabled(false);
     QMessageBox::StandardButton answer = QMessageBox::question(
-        this, QStringLiteral("Azahar"),
-        tr("Are you sure you want to <b>reset your settings</b> and close Azahar?"),
+        this, QStringLiteral("Kitsune3DS"),
+        tr("Are you sure you want to <b>reset your settings</b> and close Kitsune3DS?"),
         QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
 
     if (answer == QMessageBox::No) {

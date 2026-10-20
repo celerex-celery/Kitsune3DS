@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -63,7 +63,7 @@ android {
     defaultConfig {
         // The application ID refers to Lime3DS to allow for
         // the Play Store listing, which was originally set up for Lime3DS, to still be used.
-        applicationId = "org.azahar_emu.azahar"
+        applicationId = "org.celerex_celery.kitsune3ds"
         minSdk = 29
         targetSdk = 37
         versionCode = autoVersion

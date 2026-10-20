@@ -18,13 +18,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../../src/citra_qt/aboutdialog.ui" line="14"/>
-        <source>About Azahar</source>
-        <translation>Σχετικά με το Azahar</translation>
+        <source>About Kitsune3DS</source>
+        <translation>Σχετικά με το Kitsune3DS</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/aboutdialog.ui" line="118"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://azahar-emu.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Website&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Source Code&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar/graphs/contributors&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Contributors&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar/blob/master/license.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;License&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://azahar-emu.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Ιστότοπος&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Πηγαίος κώδικας&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar/graphs/contributors&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Εθελοντές&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/azahar-emu/azahar/blob/master/license.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Άδεια χρήσης&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Website&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Source Code&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/graphs/contributors&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Contributors&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/blob/master/license.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;License&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Ιστότοπος&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Πηγαίος κώδικας&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/graphs/contributors&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Εθελοντές&lt;/span&gt;&lt;/a&gt; | &lt;a href=&quot;https://github.com/celerex-celery/Kitsune3DS/blob/master/license.txt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#039be5;&quot;&gt;Άδεια χρήσης&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -740,7 +740,7 @@ Would you like to ignore the error and continue?</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_debug.ui" line="130"/>
-        <source>&lt;html&gt;&lt;body&gt;Immediately commits the debug log to file. Use this if Azahar crashes and the log output is being cut.&lt;br&gt;Enabling this feature will decrease performance, only use it for debugging purposes.&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;body&gt;Immediately commits the debug log to file. Use this if Kitsune3DS crashes and the log output is being cut.&lt;br&gt;Enabling this feature will decrease performance, only use it for debugging purposes.&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -890,7 +890,7 @@ Would you like to ignore the error and continue?</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_debug.cpp" line="87"/>
-        <source>Please relaunch Azahar for this setting to take effect.</source>
+        <source>Please relaunch Kitsune3DS for this setting to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -898,8 +898,8 @@ Would you like to ignore the error and continue?</source>
     <name>ConfigureDialog</name>
     <message>
         <location filename="../../src/citra_qt/configuration/configure.ui" line="6"/>
-        <source>Azahar Configuration</source>
-        <translation>Διαμόρφωση του Azahar</translation>
+        <source>Kitsune3DS Configuration</source>
+        <translation>Διαμόρφωση του Kitsune3DS</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_dialog.cpp" line="50"/>
@@ -1390,8 +1390,8 @@ Would you like to ignore the error and continue?</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_general.cpp" line="156"/>
-        <source>Are you sure you want to &lt;b&gt;reset your settings&lt;/b&gt; and close Azahar?</source>
-        <translation>Θέλετε σίγουρα να &lt;b&gt;επαναφέρετε τις ρυθμίσεις σας&lt;/b&gt; και να κλείσετε το Azahar;</translation>
+        <source>Are you sure you want to &lt;b&gt;reset your settings&lt;/b&gt; and close Kitsune3DS?</source>
+        <translation>Θέλετε σίγουρα να &lt;b&gt;επαναφέρετε τις ρυθμίσεις σας&lt;/b&gt; και να κλείσετε το Kitsune3DS;</translation>
     </message>
 </context>
 <context>
@@ -3109,8 +3109,8 @@ installed applications.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_system.ui" line="596"/>
-        <source>Your real console is linked to Azahar.</source>
-        <translation>Η πραγματική σας κονσόλα είναι συνδεδεμένη με το Azahar.</translation>
+        <source>Your real console is linked to Kitsune3DS.</source>
+        <translation>Η πραγματική σας κονσόλα είναι συνδεδεμένη με το Kitsune3DS.</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_system.ui" line="612"/>
@@ -3864,8 +3864,8 @@ installed applications.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_system.cpp" line="612"/>
-        <source>This action will unlink your real console from Azahar, with the following consequences:&lt;br&gt;&lt;ul&gt;&lt;li&gt;Your OTP, SecureInfo and LocalFriendCodeSeed will be removed from Azahar.&lt;/li&gt;&lt;li&gt;Your friend list will reset and you will be logged out of your NNID/PNID account.&lt;/li&gt;&lt;li&gt;System files and eshop titles obtained through Azahar will become inaccessible until the same console is linked again (save data will not be lost).&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Continue?</source>
-        <translation>Αυτή η ενέργεια θα αποσυνδέσει την πραγματική σας κονσόλα από το Azahar, επιφέροντας τις εξής συνέπειες:&lt;br&gt;&lt;ul&gt;&lt;li&gt;Τα δεδομένα OTP, SecureInfo και LocalFriendCodeSeed σας θα καταργηθούν από το Azahar.&lt;/li&gt;&lt;li&gt;Θα γίνει επαναφορά της λίστας φίλων σας και θα αποσυνδεθείτε από τον λογαριασμό NNID/PNID σας.&lt;/li&gt;&lt;li&gt;Τα αρχεία συστήματος, καθώς και οι τίτλοι του eshop που αποκτήθηκαν μέσω του Azahar, θα καταστούν μη προσβάσιμα μέχρι να συνδεθεί ξανά η ίδια κονσόλα (τα αποθηκευμένα δεδομένα δεν θα χαθούν).&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Θέλετε να συνεχίσετε;</translation>
+        <source>This action will unlink your real console from Kitsune3DS, with the following consequences:&lt;br&gt;&lt;ul&gt;&lt;li&gt;Your OTP, SecureInfo and LocalFriendCodeSeed will be removed from Kitsune3DS.&lt;/li&gt;&lt;li&gt;Your friend list will reset and you will be logged out of your NNID/PNID account.&lt;/li&gt;&lt;li&gt;System files and eshop titles obtained through Kitsune3DS will become inaccessible until the same console is linked again (save data will not be lost).&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Continue?</source>
+        <translation>Αυτή η ενέργεια θα αποσυνδέσει την πραγματική σας κονσόλα από το Kitsune3DS, επιφέροντας τις εξής συνέπειες:&lt;br&gt;&lt;ul&gt;&lt;li&gt;Τα δεδομένα OTP, SecureInfo και LocalFriendCodeSeed σας θα καταργηθούν από το Kitsune3DS.&lt;/li&gt;&lt;li&gt;Θα γίνει επαναφορά της λίστας φίλων σας και θα αποσυνδεθείτε από τον λογαριασμό NNID/PNID σας.&lt;/li&gt;&lt;li&gt;Τα αρχεία συστήματος, καθώς και οι τίτλοι του eshop που αποκτήθηκαν μέσω του Kitsune3DS, θα καταστούν μη προσβάσιμα μέχρι να συνδεθεί ξανά η ίδια κονσόλα (τα αποθηκευμένα δεδομένα δεν θα χαθούν).&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;Θέλετε να συνεχίσετε;</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/configuration/configure_system.cpp" line="640"/>
@@ -4308,18 +4308,18 @@ Please check your FFmpeg installation used for compilation.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="502"/>
-        <source>The `azahar` executable is being run directly rather than via the Azahar.app bundle.
+        <source>The `kitsune3ds` executable is being run directly rather than via the Kitsune3DS.app bundle.
 
 When run this way, the app may be missing certain functionality such as camera emulation.
 
-It is recommended to instead run Azahar using the `open` command, e.g.:
-`open ./Azahar.app`</source>
-        <translation>Το εκτελέσιμο αρχείο `azahar` εκτελείται απευθείας και όχι μέσω του πακέτου Azahar.app.
+It is recommended to instead run Kitsune3DS using the `open` command, e.g.:
+`open ./Kitsune3DS.app`</source>
+        <translation>Το εκτελέσιμο αρχείο `kitsune3ds` εκτελείται απευθείας και όχι μέσω του πακέτου Kitsune3DS.app.
 
 Όταν γίνεται εκτέλεση με αυτόν τον τρόπο, η εφαρμογή ενδέχεται να μην έχει ορισμένες λειτουργίες, όπως εξομοίωση της κάμερας.
 
-Προτείνεται η εκτέλεση του Azahar με χρήση της εντολής `open` , π.χ.:
-`open ./Azahar.app`</translation>
+Προτείνεται η εκτέλεση του Kitsune3DS με χρήση της εντολής `open` , π.χ.:
+`open ./Kitsune3DS.app`</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="611"/>
@@ -4368,9 +4368,9 @@ It is recommended to instead run Azahar using the `open` command, e.g.:
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="1323"/>
-        <source>Azahar is running an application</source>
+        <source>Kitsune3DS is running an application</source>
         <extracomment>TRANSLATORS: This string is shown to the user to explain why Citra needs to prevent the computer from sleeping</extracomment>
-        <translation>Το Azahar εκτελεί μια εφαρμογή</translation>
+        <translation>Το Kitsune3DS εκτελεί μια εφαρμογή</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="1395"/>
@@ -4389,7 +4389,7 @@ It is recommended to instead run Azahar using the `open` command, e.g.:
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="1417"/>
-        <source>Encrypted applications are not supported.&lt;br/&gt;&lt;a href=&apos;https://azahar-emu.org/blog/game-loading-changes/&apos;&gt;Please check our blog for more info.&lt;/a&gt;</source>
+        <source>Encrypted applications are not supported.&lt;br/&gt;&lt;a href=&apos;https://github.com/celerex-celery/Kitsune3DS/blog/game-loading-changes/&apos;&gt;Please check our blog for more info.&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4399,8 +4399,8 @@ It is recommended to instead run Azahar using the `open` command, e.g.:
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="1429"/>
-        <source>GBA Virtual Console is not supported by Azahar.</source>
-        <translation>Η GBA Virtual Console δεν υποστηρίζεται από το Azahar.</translation>
+        <source>GBA Virtual Console is not supported by Kitsune3DS.</source>
+        <translation>Η GBA Virtual Console δεν υποστηρίζεται από το Kitsune3DS.</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="1434"/>
@@ -4633,13 +4633,13 @@ Refer to the log for details.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="2356"/>
-        <source>&lt;p&gt;Azahar needs console unique data and firmware files from a real console to be able to use some of its features.&lt;br&gt;Such files and data can be set up with the &lt;a href=https://github.com/azahar-emu/ArticSetupTool&gt;Azahar Artic Setup Tool&lt;/a&gt;&lt;br&gt;Notes:&lt;ul&gt;&lt;li&gt;&lt;b&gt;This operation will install console unique data to Azahar, do not share your user or nand folders&lt;br&gt;after performing the setup process!&lt;/b&gt;&lt;/li&gt;&lt;li&gt;While doing the setup process, Azahar will link to the console running the setup tool. You can unlink the&lt;br&gt;console later from the System tab in the emulator configuration menu.&lt;/li&gt;&lt;li&gt;Do not go online with both Azahar and your 3DS console at the same time after setting up system files,&lt;br&gt;as it could cause issues.&lt;/li&gt;&lt;li&gt;Old 3DS setup is needed for the New 3DS setup to work (doing both setup modes is recommended).&lt;/li&gt;&lt;li&gt;Both setup modes will work regardless of the model of the console running the setup tool.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Για να χρησιμοποιήσετε ορισμένες από τις λειτουργίες του Azahar, απαιτούνται μοναδικά δεδομένα κονσόλας και αρχεία υλικολογισμικού από μια πραγματική κονσόλα.&lt;br&gt;Μπορείτε να ρυθμίσετε αυτά τα αρχεία και τα δεδομένα με το &lt;a href=https://github.com/azahar-emu/ArticSetupTool&gt;Εργαλείο ρύθμισης Azahar Artic&lt;/a&gt;&lt;br&gt;Σημειώσεις:&lt;ul&gt;&lt;li&gt;&lt;b&gt;Αυτή η ενέργεια θα εγκαταστήσει τα μοναδικά δεδομένα της κονσόλας στο Azahar. Μην κοινοποιήσετε τους φακέλους χρήστη ή nand&lt;br&gt;μετά την εκτέλεση της διαδικασίας ρύθμισης!&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Κατά τη διαδικασία ρύθμισης, το Azahar θα συνδεθεί στην κονσόλα που εκτελεί το εργαλείο ρύθμισης. Μπορείτε να αποσυνδέσετε την&lt;br&gt;κονσόλα αργότερα, από την καρτέλα «Σύστημα» στο μενού διαμόρφωσης του εξομοιωτή.&lt;/li&gt;&lt;li&gt;Αφού ρυθμίσετε τα αρχεία συστήματος, φροντίστε να μην συνδέεστε στο διαδίκτυο με το Azahar και την κονσόλα 3DS σας ταυτόχρονα,&lt;br&gt;καθώς αυτό μπορεί να προκαλέσει προβλήματα.&lt;/li&gt;&lt;li&gt;Για να λειτουργήσει η ρύθμιση για συστήματα New 3DS, απαιτείται η ρύθμιση για Old 3DS (προτείνεται η εκτέλεση και των δύο τρόπων ρύθμισης).&lt;/li&gt;&lt;li&gt;Και οι δύο τρόποι ρύθμισης θα λειτουργήσουν ανεξάρτητα από το μοντέλο της κονσόλας που εκτελεί το εργαλείο ρύθμισης.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Kitsune3DS needs console unique data and firmware files from a real console to be able to use some of its features.&lt;br&gt;Such files and data can be set up with the &lt;a href=https://github.com/azahar-emu/ArticSetupTool&gt;Kitsune3DS Artic Setup Tool&lt;/a&gt;&lt;br&gt;Notes:&lt;ul&gt;&lt;li&gt;&lt;b&gt;This operation will install console unique data to Kitsune3DS, do not share your user or nand folders&lt;br&gt;after performing the setup process!&lt;/b&gt;&lt;/li&gt;&lt;li&gt;While doing the setup process, Kitsune3DS will link to the console running the setup tool. You can unlink the&lt;br&gt;console later from the System tab in the emulator configuration menu.&lt;/li&gt;&lt;li&gt;Do not go online with both Kitsune3DS and your 3DS console at the same time after setting up system files,&lt;br&gt;as it could cause issues.&lt;/li&gt;&lt;li&gt;Old 3DS setup is needed for the New 3DS setup to work (doing both setup modes is recommended).&lt;/li&gt;&lt;li&gt;Both setup modes will work regardless of the model of the console running the setup tool.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Για να χρησιμοποιήσετε ορισμένες από τις λειτουργίες του Kitsune3DS, απαιτούνται μοναδικά δεδομένα κονσόλας και αρχεία υλικολογισμικού από μια πραγματική κονσόλα.&lt;br&gt;Μπορείτε να ρυθμίσετε αυτά τα αρχεία και τα δεδομένα με το &lt;a href=https://github.com/azahar-emu/ArticSetupTool&gt;Εργαλείο ρύθμισης Kitsune3DS Artic&lt;/a&gt;&lt;br&gt;Σημειώσεις:&lt;ul&gt;&lt;li&gt;&lt;b&gt;Αυτή η ενέργεια θα εγκαταστήσει τα μοναδικά δεδομένα της κονσόλας στο Kitsune3DS. Μην κοινοποιήσετε τους φακέλους χρήστη ή nand&lt;br&gt;μετά την εκτέλεση της διαδικασίας ρύθμισης!&lt;/b&gt;&lt;/li&gt;&lt;li&gt;Κατά τη διαδικασία ρύθμισης, το Kitsune3DS θα συνδεθεί στην κονσόλα που εκτελεί το εργαλείο ρύθμισης. Μπορείτε να αποσυνδέσετε την&lt;br&gt;κονσόλα αργότερα, από την καρτέλα «Σύστημα» στο μενού διαμόρφωσης του εξομοιωτή.&lt;/li&gt;&lt;li&gt;Αφού ρυθμίσετε τα αρχεία συστήματος, φροντίστε να μην συνδέεστε στο διαδίκτυο με το Kitsune3DS και την κονσόλα 3DS σας ταυτόχρονα,&lt;br&gt;καθώς αυτό μπορεί να προκαλέσει προβλήματα.&lt;/li&gt;&lt;li&gt;Για να λειτουργήσει η ρύθμιση για συστήματα New 3DS, απαιτείται η ρύθμιση για Old 3DS (προτείνεται η εκτέλεση και των δύο τρόπων ρύθμισης).&lt;/li&gt;&lt;li&gt;Και οι δύο τρόποι ρύθμισης θα λειτουργήσουν ανεξάρτητα από το μοντέλο της κονσόλας που εκτελεί το εργαλείο ρύθμισης.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="2375"/>
-        <source>Enter Azahar Artic Setup Tool address:</source>
-        <translation>Εισαγάγετε τη διεύθυνση του εργαλείου ρύθμισης Azahar Artic:</translation>
+        <source>Enter Kitsune3DS Artic Setup Tool address:</source>
+        <translation>Εισαγάγετε τη διεύθυνση του εργαλείου ρύθμισης Kitsune3DS Artic:</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="2382"/>
@@ -4741,7 +4741,7 @@ Reinstall the files anyway?</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="2527"/>
-        <source>Your CIA file is encrypted.&lt;br/&gt;&lt;a href=&apos;https://azahar-emu.org/blog/game-loading-changes/&apos;&gt;Please check our blog for more info.&lt;/a&gt;</source>
+        <source>Your CIA file is encrypted.&lt;br/&gt;&lt;a href=&apos;https://github.com/celerex-celery/Kitsune3DS/blog/game-loading-changes/&apos;&gt;Please check our blog for more info.&lt;/a&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5114,7 +5114,7 @@ Use at your own risk!</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="4052"/>
-        <source>%1 is missing. Please &lt;a href=&apos;https://github.com/azahar-emu/azahar/wiki/Dumping-System-Files&apos;&gt;dump your system archives&lt;/a&gt;.&lt;br/&gt;Continuing emulation may result in crashes and bugs.</source>
+        <source>%1 is missing. Please &lt;a href=&apos;https://github.com/celerex-celery/Kitsune3DS/wiki/Dumping-System-Files&apos;&gt;dump your system archives&lt;/a&gt;.&lt;br/&gt;Continuing emulation may result in crashes and bugs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5144,7 +5144,7 @@ Use at your own risk!</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="4078"/>
-        <source>Could not load savestate because it was created on a different Azahar version:&lt;br/&gt;&lt;b&gt;Azahar %1&lt;/b&gt;.&lt;br/&gt;&lt;br/&gt;Please read our blog entry &lt;a href=&apos;https://azahar-emu.org/blog/understanding-save-states/&apos;&gt;understanding savestates&lt;/a&gt; for more information.&lt;br/&gt;&lt;br/&gt;To recover your progress, downgrade to &lt;b&gt;Azahar %1&lt;/b&gt;, load this savestate and use the application&apos;s built-in save functionality.</source>
+        <source>Could not load savestate because it was created on a different Kitsune3DS version:&lt;br/&gt;&lt;b&gt;Kitsune3DS %1&lt;/b&gt;.&lt;br/&gt;&lt;br/&gt;Please read our blog entry &lt;a href=&apos;https://github.com/celerex-celery/Kitsune3DS/blog/understanding-save-states/&apos;&gt;understanding savestates&lt;/a&gt; for more information.&lt;br/&gt;&lt;br/&gt;To recover your progress, downgrade to &lt;b&gt;Kitsune3DS %1&lt;/b&gt;, load this savestate and use the application&apos;s built-in save functionality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5199,7 +5199,7 @@ Use at your own risk!</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/citra_qt.cpp" line="4439"/>
-        <source>Update %1 for Azahar is available.
+        <source>Update %1 for Kitsune3DS is available.
 Would you like to download it?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6384,8 +6384,8 @@ Debug Message: </source>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="81"/>
-        <source>Open Azahar Folder</source>
-        <translation>Άνοιγμα φακέλου Azahar</translation>
+        <source>Open Kitsune3DS Folder</source>
+        <translation>Άνοιγμα φακέλου Kitsune3DS</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="104"/>
@@ -6499,8 +6499,8 @@ Debug Message: </source>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="356"/>
-        <source>About Azahar</source>
-        <translation>Σχετικά με το Azahar</translation>
+        <source>About Kitsune3DS</source>
+        <translation>Σχετικά με το Kitsune3DS</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="367"/>
@@ -6674,8 +6674,8 @@ Debug Message: </source>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="598"/>
-        <source>Opens the Azahar Log folder</source>
-        <translation>Ανοίγει τον φάκελο των αρχείων καταγραφής του Azahar</translation>
+        <source>Opens the Kitsune3DS Log folder</source>
+        <translation>Ανοίγει τον φάκελο των αρχείων καταγραφής του Kitsune3DS</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/main.ui" line="606"/>
@@ -7102,7 +7102,7 @@ Debug Message: </source>
     </message>
     <message>
         <location filename="../../src/citra_qt/multiplayer/message.cpp" line="34"/>
-        <source>Creating a room failed. Please retry. Restarting Azahar might be necessary.</source>
+        <source>Creating a room failed. Please retry. Restarting Kitsune3DS might be necessary.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7112,8 +7112,8 @@ Debug Message: </source>
     </message>
     <message>
         <location filename="../../src/citra_qt/multiplayer/message.cpp" line="39"/>
-        <source>Version mismatch! Please update to the latest version of Azahar. If the problem persists, contact the room host and ask them to update the server.</source>
-        <translation>Αναντιστοιχία έκδοσης! Κάντε ενημέρωση στην πιο πρόσφατη έκδοση του Azahar. Εάν το πρόβλημα παραμένει, επικοινωνήστε με τον οικοδεσπότη του δωματίου και ζητήστε του να ενημερώσει τον διακομιστή.</translation>
+        <source>Version mismatch! Please update to the latest version of Kitsune3DS. If the problem persists, contact the room host and ask them to update the server.</source>
+        <translation>Αναντιστοιχία έκδοσης! Κάντε ενημέρωση στην πιο πρόσφατη έκδοση του Kitsune3DS. Εάν το πρόβλημα παραμένει, επικοινωνήστε με τον οικοδεσπότη του δωματίου και ζητήστε του να ενημερώσει τον διακομιστή.</translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/multiplayer/message.cpp" line="41"/>
@@ -7557,9 +7557,9 @@ They may have left the room.</source>
     <name>UserDataMigrator</name>
     <message>
         <location filename="../../src/citra_qt/user_data_migration.cpp" line="30"/>
-        <source>Would you like to migrate your data for use in Azahar?
+        <source>Would you like to migrate your data for use in Kitsune3DS?
 (This may take a while; The old data will not be deleted)</source>
-        <translation>Θέλετε να μεταφέρετε τα δεδομένα σας για χρήση στο Azahar?
+        <translation>Θέλετε να μεταφέρετε τα δεδομένα σας για χρήση στο Kitsune3DS?
 (Αυτή η διαδικασία ενδέχεται να διαρκέσει αρκετή ώρα· τα παλιά δεδομένα δεν θα διαγραφούν)</translation>
     </message>
     <message>
@@ -7573,10 +7573,10 @@ They may have left the room.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/user_data_migration.cpp" line="41"/>
-        <source>Azahar has detected user data for Citra and Lime3DS.
+        <source>Kitsune3DS has detected user data for Citra and Lime3DS.
 
 </source>
-        <translation>Το Azahar εντόπισε δεδομένα χρήστη για το Citra και το Lime3DS.
+        <translation>Το Kitsune3DS εντόπισε δεδομένα χρήστη για το Citra και το Lime3DS.
 
 </translation>
     </message>
@@ -7592,19 +7592,19 @@ They may have left the room.</source>
     </message>
     <message>
         <location filename="../../src/citra_qt/user_data_migration.cpp" line="66"/>
-        <source>Azahar has detected user data for Citra.
+        <source>Kitsune3DS has detected user data for Citra.
 
 </source>
-        <translation>Το Azahar εντόπισε δεδομένα χρήστη για το Citra.
+        <translation>Το Kitsune3DS εντόπισε δεδομένα χρήστη για το Citra.
 
 </translation>
     </message>
     <message>
         <location filename="../../src/citra_qt/user_data_migration.cpp" line="77"/>
-        <source>Azahar has detected user data for Lime3DS.
+        <source>Kitsune3DS has detected user data for Lime3DS.
 
 </source>
-        <translation>Το Azahar εντόπισε δεδομένα χρήστη για το Lime3DS.
+        <translation>Το Kitsune3DS εντόπισε δεδομένα χρήστη για το Lime3DS.
 
 </translation>
     </message>

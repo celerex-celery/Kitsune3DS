@@ -637,15 +637,15 @@ endif()
 # http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
 # http://standards.freedesktop.org/shared-mime-info-spec/shared-mime-info-spec-latest.html
 if(ENABLE_QT AND UNIX AND NOT APPLE)
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/azahar.desktop"
+    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.desktop"
             DESTINATION "${CMAKE_INSTALL_PREFIX}/share/applications"
-            RENAME "org.azahar_emu.Azahar.desktop")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/azahar.svg"
+            RENAME "org.celerex_celery.Kitsune3DS.desktop")
+    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.svg"
             DESTINATION "${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps"
-            RENAME "org.azahar_emu.Azahar.svg")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/azahar.png"
+            RENAME "org.celerex_celery.Kitsune3DS.svg")
+    install(FILES "${PROJECT_SOURCE_DIR}/dist/kitsune3ds.png"
             DESTINATION "${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/512x512/apps"
-            RENAME "org.azahar_emu.Azahar.png")
-    install(FILES "${PROJECT_SOURCE_DIR}/dist/org.azahar_emu.Azahar.xml"
+            RENAME "org.celerex_celery.Kitsune3DS.png")
+    install(FILES "${PROJECT_SOURCE_DIR}/dist/org.celerex_celery.Kitsune3DS.xml"
             DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mime/packages")
 endif()

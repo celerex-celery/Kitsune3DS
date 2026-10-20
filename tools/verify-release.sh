@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright Citra Emulator Project / Azahar Emulator Project
+# Copyright Citra Emulator Project / Kitsune3DS Emulator Project
 # Licensed under GPLv2 or any later version
 # Refer to the license.txt file included.
 
@@ -10,7 +10,7 @@ set -euo pipefail
 #   ./verify-release.sh <owner/repo> <tag>
 #
 # Example:
-#   ./verify-release.sh azahar-emu/azahar 2126.0
+#   ./verify-release.sh celerex-celery/Kitsune3DS 2126.0
 #
 # Behavior:
 #   - Downloads all release assets

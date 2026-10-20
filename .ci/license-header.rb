@@ -1,14 +1,14 @@
 #!/usr/bin/ruby
 # frozen_string_literal: true
 
-# Copyright 2024-2026 Citra Emulator Project / Azahar Emulator Project
+# Copyright 2024-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 # Licensed under GPLv3 or any later version
 # Refer to the LICENSE.txt file included.
 
 YEARS_PLACEHOLDER = 'YEARS_PLACEHOLDER'
 
 license_header_template = <<~EOF
-      // Copyright #{YEARS_PLACEHOLDER} Citra Emulator Project / Azahar Emulator Project
+      // Copyright #{YEARS_PLACEHOLDER} Citra Emulator Project / Kitsune3DS Emulator Project
       // Licensed under GPLv3 or any later version
       // Refer to the LICENSE.txt file included.
       EOF

@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -309,7 +309,7 @@ private slots:
 #endif
     void OnCoreError(Core::System::ResultStatus, std::string);
     bool ShowExceptionDialog(Core::System::ResultStatus result, const std::string& details);
-    /// Called whenever a user selects Help->About Azahar
+    /// Called whenever a user selects Help->About Kitsune3DS
     void OnMenuAboutCitra();
 
     void OnLanguageChanged(const QString& locale);

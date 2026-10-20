@@ -1,4 +1,4 @@
-// Copyright 2023-2025 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2025 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -38,7 +38,11 @@ constexpr u8 DEFAULT_SOUND_OUTPUT_MODE = SOUND_STEREO;
 // constants.
 constexpr u64_le DEFAULT_CONSOLE_ID = 0;
 constexpr u32_le DEFAULT_CONSOLE_RANDOM_NUMBER = 0;
-constexpr UsernameBlock DEFAULT_USERNAME{{u"AZAHAR"}, 0, 0};
+// The console username field is a fixed 10 character UTF-16 buffer without a null terminator,
+// so the name is spelled out element by element to fill it exactly.
+constexpr std::array<char16_t, 10> DEFAULT_USERNAME_CHARS = {
+    u'K', u'I', u'T', u'S', u'U', u'N', u'E', u'3', u'D', u'S'};
+constexpr UsernameBlock DEFAULT_USERNAME{DEFAULT_USERNAME_CHARS, 0, 0};
 constexpr BirthdayBlock DEFAULT_BIRTHDAY{11, 7}; // November 7th, 2024
 constexpr u8 DEFAULT_LANGUAGE = LANGUAGE_EN;
 constexpr ConsoleCountryInfo DEFAULT_COUNTRY_INFO{

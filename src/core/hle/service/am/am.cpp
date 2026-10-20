@@ -1,4 +1,4 @@
-// Copyright 2015-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2015-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -120,7 +120,7 @@ public:
 NCCHCryptoFile::NCCHCryptoFile(const std::string& out_file, bool encrypted_content) {
     if (encrypted_content) {
         // A console unique crypto file is used to store the decrypted NCCH file. This is done
-        // to prevent Azahar being used as a tool to download easy shareable decrypted contents
+        // to prevent Kitsune3DS being used as a tool to download easy shareable decrypted contents
         // from the eshop.
         file = HW::UniqueData::OpenUniqueCryptoFile(out_file, "wb",
                                                     HW::UniqueData::UniqueCryptoFileID::NCCH);

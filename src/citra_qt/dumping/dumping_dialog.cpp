@@ -1,4 +1,4 @@
-// Copyright 2020-2024 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2020-2024 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -22,7 +22,7 @@ DumpingDialog::DumpingDialog(QWidget* parent, Core::System& system_)
     connect(ui->pathExplore, &QToolButton::clicked, this, &DumpingDialog::OnToolButtonClicked);
     connect(ui->buttonBox, &QDialogButtonBox::accepted, [this] {
         if (ui->pathLineEdit->text().isEmpty()) {
-            QMessageBox::critical(this, QStringLiteral("Azahar"),
+            QMessageBox::critical(this, QStringLiteral("Kitsune3DS"),
                                   tr("Please specify the output path."));
             return;
         }
@@ -83,7 +83,7 @@ void DumpingDialog::Populate() {
     }
 
     if (!missing.isEmpty()) {
-        QMessageBox::critical(this, QStringLiteral("Azahar"),
+        QMessageBox::critical(this, QStringLiteral("Kitsune3DS"),
                               tr("Could not find any available %1.\nPlease check your FFmpeg "
                                  "installation used for compilation.")
                                   .arg(missing));

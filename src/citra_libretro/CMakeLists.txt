@@ -29,7 +29,7 @@ add_library(citra_libretro SHARED
         citra_libretro.h
         $<TARGET_OBJECTS:citra_libretro_common>)
 
-set_target_properties(citra_libretro PROPERTIES OUTPUT_NAME "azahar_libretro")
+set_target_properties(citra_libretro PROPERTIES OUTPUT_NAME "kitsune3ds_libretro")
 
 create_target_directory_groups(citra_libretro)
 
@@ -98,4 +98,4 @@ else()
   target_link_libraries(citra_libretro PRIVATE "-Wl,-Bsymbolic")
 endif()
 
-add_custom_target(azahar_libretro DEPENDS citra_libretro)
+add_custom_target(kitsune3ds_libretro DEPENDS citra_libretro)

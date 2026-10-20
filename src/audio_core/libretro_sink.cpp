@@ -1,4 +1,4 @@
-// Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -16,7 +16,7 @@ unsigned int LibRetroSink::GetNativeSampleRate() const {
 }
 
 void LibRetroSink::PushSamples(const void* data, std::size_t num_samples) {
-    // libretro calls stereo pairs "frames", Azahar calls them "samples"
+    // libretro calls stereo pairs "frames", Kitsune3DS calls them "samples"
     LibRetro::SubmitAudio(static_cast<const s16*>(data), num_samples);
 }
 

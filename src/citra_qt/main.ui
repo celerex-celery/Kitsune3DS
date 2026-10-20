@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">Azahar</string>
+   <string notr="true">Kitsune3DS</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>dist/azahar.png</normaloff>dist/azahar.png</iconset>
+    <normaloff>dist/kitsune3ds.png</normaloff>dist/kitsune3ds.png</iconset>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
@@ -78,7 +78,7 @@
     </widget>
     <widget class="QMenu" name="menu_Open_Folder">
      <property name="title">
-      <string>Open Azahar Folder</string>
+      <string>Open Kitsune3DS Folder</string>
      </property>
      <addaction name="action_Open_Citra_Folder"/>
      <addaction name="action_Open_NAND_Folder"/>
@@ -353,7 +353,7 @@
   </action>
   <action name="action_About">
    <property name="text">
-    <string>About Azahar</string>
+    <string>About Kitsune3DS</string>
    </property>
    <property name="menuRole">
     <enum>QAction::AboutRole</enum>
@@ -595,7 +595,7 @@
     <string>Open Log Folder</string>
    </property>
    <property name="toolTip">
-    <string>Opens the Azahar Log folder</string>
+    <string>Opens the Kitsune3DS Log folder</string>
    </property>
   </action>
   <action name="action_Screen_Layout_Default">

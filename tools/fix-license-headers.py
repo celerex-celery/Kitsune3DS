@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+# Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 # Licensed under GPLv3 or any later version
 # Refer to the LICENSE.txt file included.
 
@@ -13,8 +13,8 @@ Only two kinds of headers can be rewritten automatically:
     // Licensed under GPLv2 or any later version
     // Refer to the license.txt file included.
 
-* the old GPLv2 header used by Azahar, for example:
-    // Copyright 2018-2025 Citra Emulator Project / Azahar Emulator Project
+* the old GPLv2 header used by Kitsune3DS, for example:
+    // Copyright 2018-2025 Citra Emulator Project / Kitsune3DS Emulator Project
     // Licensed under GPLv2 or any later version
     // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -52,24 +52,24 @@ CHECKED_EXTENSIONS = (
 )
 
 NEW_HEADER_TEMPLATE = (
-    "// Copyright {years} Citra Emulator Project / Azahar Emulator Project\n"
+    "// Copyright {years} Citra Emulator Project / Kitsune3DS Emulator Project\n"
     "// Licensed under GPLv3 or any later version\n"
     "// Refer to the LICENSE.txt file included.\n"
 )
 
 CURRENT_HEADER_RE = re.compile(
     r"\A// Copyright (?P<start>\d{4})(?:-(?P<end>\d{4}))? "
-    r"Citra Emulator Project / Azahar Emulator Project\n"
+    r"Citra Emulator Project / Kitsune3DS Emulator Project\n"
     r"// Licensed under GPLv3 or any later version\n"
     r"// Refer to the LICENSE\.txt file included\.\n"
 )
 
 # Old headers that can be converted automatically. The owner must be exactly
-# "Citra Emulator Project" or "Citra Emulator Project / Azahar Emulator
+# "Citra Emulator Project" or "Citra Emulator Project / Kitsune3DS Emulator
 # Project". Anything else does not match.
 OLD_HEADER_RE = re.compile(
     r"\A//[ \t]*Copyright[ \t]+(?P<start>\d{4})(?:[ \t]*-[ \t]*(?P<end>\d{4}))?[ \t]+"
-    r"(?P<owner>Citra Emulator Project(?:[ \t]*/[ \t]*Azahar Emulator Project)?)[ \t]*\n"
+    r"(?P<owner>Citra Emulator Project(?:[ \t]*/[ \t]*Kitsune3DS Emulator Project)?)[ \t]*\n"
     r"//[ \t]*Licensed under (?P<license>GPLv2 or any later version|GPLv2\+|GPLv3 or any later version)[ \t]*\n"
     r"//[ \t]*Refer to the (?:license\.txt|LICENSE\.txt|misc/licenses/gplv2\.txt) file included\.{1,2}[ \t]*\n"
 )
@@ -150,7 +150,7 @@ def repo_root():
     try:
         return git("rev-parse", "--show-toplevel").strip()
     except (RuntimeError, FileNotFoundError):
-        sys.exit("error: this script must be run from inside the Azahar git repository")
+        sys.exit("error: this script must be run from inside the Kitsune3DS git repository")
 
 
 def resolve_base(root, base):
@@ -232,7 +232,7 @@ def process_file(root, path, year, add_missing):
     if match:
         years = format_years(match["start"], match["end"], year)
         new_body = NEW_HEADER_TEMPLATE.format(years=years) + body[match.end():]
-        kind = "old Citra-only header" if "Azahar" not in match["owner"] else "old GPLv2 header"
+        kind = "old Citra-only header" if "Kitsune3DS" not in match["owner"] else "old GPLv2 header"
         if match["license"].startswith("GPLv3"):
             kind = "outdated header"
         return Result(path, Result.FIXED, body, new_body, note=kind, has_bom=has_bom)
@@ -260,12 +260,12 @@ DISCLAIMER = """\
 ================================================================================
 This tool rewrites license headers. Changing a license header has legal
 implications, by applying these changes YOU are stating that the new header
-(GPLv3 or any later version, Citra Emulator Project / Azahar Emulator Project)
+(GPLv3 or any later version, Citra Emulator Project / Kitsune3DS Emulator Project)
 correctly describes the licensing of each of the files listed above.
 
 You are responsible for these changes. Please review every change above before
 continuing, and do not accept them if any file contains code that is not
-owned by the Citra / Azahar projects or that you are not sure about.
+owned by the Citra / Kitsune3DS projects or that you are not sure about.
 ================================================================================"""
 
 
@@ -281,7 +281,7 @@ def confirm():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Update old Citra/Azahar license headers to the current GPLv3 header "
+        description="Update old Citra/Kitsune3DS license headers to the current GPLv3 header "
                     "format.",
     )
     parser.add_argument("paths", nargs="*",
@@ -371,7 +371,7 @@ def main():
           f"{len(errors)} unreadable.")
 
     if manual or missing:
-        print("\nExpected header for files owned by the Azahar project:")
+        print("\nExpected header for files owned by the Kitsune3DS project:")
         print(NEW_HEADER_TEMPLATE.format(years=args.year), end="")
 
     needs_attention = bool(manual or missing or errors)

@@ -1,4 +1,4 @@
-// Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -53,7 +53,7 @@ object UpdateChecker {
 
     fun getLatestRelease(includePrereleases: Boolean): String? {
         val updateCheckUrl = "https://api.github.com"
-        var updateCheckPath = "/repos/azahar-emu/azahar"
+        var updateCheckPath = "/repos/celerex-celery/Kitsune3DS"
         if (includePrereleases) { // This can return either a prerelease or a stable release,
             // whichever is more recent.
             val updateCheckTagsPath = "$updateCheckPath/tags"

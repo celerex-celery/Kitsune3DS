@@ -1,4 +1,4 @@
-// Copyright 2024-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2024-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -293,7 +293,7 @@ bool Client::Connect() {
             closesocket(main_socket);
             LOG_ERROR(Network, "Incompatible server version: {}", version_value);
             SignalCommunicationError("\nIncompatible Artic Server version.\nCheck for updates "
-                                     "to the Artic Server or Azahar.");
+                                     "to the Artic Server or Kitsune3DS.");
             return false;
         }
     } else {

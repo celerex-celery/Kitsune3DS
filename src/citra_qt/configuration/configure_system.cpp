@@ -1,4 +1,4 @@
-// Copyright 2016-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2016-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -609,10 +609,10 @@ void ConfigureSystem::UnlinkConsole() {
     ui->button_unlink_console->setEnabled(false);
     QMessageBox::StandardButton reply;
     QString warning_text =
-        tr("This action will unlink your real console from Azahar, with the following "
+        tr("This action will unlink your real console from Kitsune3DS, with the following "
            "consequences:<br><ul><li>Your OTP, SecureInfo and LocalFriendCodeSeed will be removed "
-           "from Azahar.</li><li>Your friend list will reset and you will be logged out of your "
-           "NNID/PNID account.</li><li>System files and eshop titles obtained through Azahar will "
+           "from Kitsune3DS.</li><li>Your friend list will reset and you will be logged out of your "
+           "NNID/PNID account.</li><li>System files and eshop titles obtained through Kitsune3DS will "
            "become inaccessible until the same console is linked again (save data will not be "
            "lost).</li></ul><br>Continue?");
     reply =

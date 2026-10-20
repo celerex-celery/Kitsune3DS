@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -68,7 +68,7 @@ public:
     // This behaviour may suggest the existance of 2 output register banks that the GPU
     // switches between each emit. This has been verified on real HW.
     // Fixes issues with M2 games such as 3D Thunderblade that have malformed shaders.
-    // (https://github.com/azahar-emu/azahar/blob/c711b0ab324d2ec116292b0db7c04a5733b8e559/src/video_core/pica/shader_setup.cpp#L105-L127)
+    // (https://github.com/celerex-celery/Kitsune3DS/blob/c711b0ab324d2ec116292b0db7c04a5733b8e559/src/video_core/pica/shader_setup.cpp#L105-L127)
     alignas(16) std::array<std::array<Common::Vec4<f24>, 16>, 2> output = {};
     bool output_bank = false;
 

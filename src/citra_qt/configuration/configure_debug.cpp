@@ -1,4 +1,4 @@
-// Copyright 2016-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2016-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -84,7 +84,7 @@ ConfigureDebug::ConfigureDebug(bool is_powered_on_, QWidget* parent)
 
     connect(ui->toggle_pica_debugging, &QCheckBox::clicked, this, [this](bool checked) {
         QMessageBox::information(this, tr("Relaunch Required"),
-                                 tr("Please relaunch Azahar for this setting to take effect."));
+                                 tr("Please relaunch Kitsune3DS for this setting to take effect."));
     });
 
     ui->toggle_cpu_jit->setEnabled(!is_powered_on);

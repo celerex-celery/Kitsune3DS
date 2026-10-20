@@ -1,4 +1,4 @@
-// Copyright 2022-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2022-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -94,7 +94,7 @@ Loader::ResultStatus FileSys::Plugin3GXLoader::Load(
     }
 
     if (header.infos.flags.compatibility == static_cast<u32>(_3gx_Infos::Compatibility::CONSOLE)) {
-        LOG_ERROR(Service_PLGLDR, "Failed to load 3GX plugin. Not compatible with Azahar: {}",
+        LOG_ERROR(Service_PLGLDR, "Failed to load 3GX plugin. Not compatible with Kitsune3DS: {}",
                   plg_context.plugin_path);
         return Loader::ResultStatus::Error;
     }

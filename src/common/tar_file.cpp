@@ -1,4 +1,4 @@
-// Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -216,7 +216,7 @@ bool TarArchive::CreateTarFile(const std::string& out_file_name,
         FileUtil::Delete(out_file.Filename());
     };
 
-    metadata.Add("bundler", std::string("Azahar ") + Common::g_build_fullname);
+    metadata.Add("bundler", std::string("Kitsune3DS ") + Common::g_build_fullname);
 
     std::time_t tt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     std::tm tm{};

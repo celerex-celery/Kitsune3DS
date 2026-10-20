@@ -1,4 +1,4 @@
-// Copyright 2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -617,7 +617,7 @@ static constexpr retro_core_option_v2_definition option_definitions[] = {
         config::category::storage,
         {
             { "LibRetro Default", "LibRetro Default" },
-            { "Azahar Default", "Azahar Default" },
+            { "Kitsune3DS Default", "Kitsune3DS Default" },
             { nullptr, nullptr }
         },
         "LibRetro Default"
@@ -1094,11 +1094,11 @@ static void ParseStorageOptions(void) {
             if (!target_dir.ends_with("/"))
                 target_dir += "/";
 
-            target_dir += "Azahar/";
+            target_dir += "Kitsune3DS/";
 
             // Ensure that this new dir exists
             if (!FileUtil::CreateDir(target_dir)) {
-                LOG_ERROR(Frontend, "Failed to create \"{}\". Using Azahar's default paths.",
+                LOG_ERROR(Frontend, "Failed to create \"{}\". Using Kitsune3DS's default paths.",
                           target_dir);
             } else {
                 FileUtil::SetUserPath(target_dir);

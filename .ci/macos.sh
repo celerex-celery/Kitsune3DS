@@ -21,7 +21,7 @@ cmake ../.. -GNinja \
 	"${EXTRA_CMAKE_FLAGS[@]}"
 ninja
 ninja bundle
-mv ./bundle/azahar.app ./bundle/Azahar.app # TODO: Can this be done in CMake?
+mv ./bundle/kitsune3ds.app ./bundle/Kitsune3DS.app # TODO: Can this be done in CMake?
 
 
 CURRENT_ARCH=`arch`

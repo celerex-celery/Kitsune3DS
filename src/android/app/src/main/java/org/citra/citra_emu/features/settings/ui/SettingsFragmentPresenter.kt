@@ -1,4 +1,4 @@
-// Copyright 2023-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2023-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -350,7 +350,7 @@ class SettingsFragmentPresenter(private val fragmentView: SettingsFragmentView) 
                 override val section = null
                 override val isRuntimeEditable = false
                 override val valueAsString get() = string
-                override val defaultValue = "AZAHAR"
+                override val defaultValue = "KITSUNE3DS"
             }
             add(HeaderSetting(R.string.emulation_settings))
             add(
@@ -475,7 +475,7 @@ class SettingsFragmentPresenter(private val fragmentView: SettingsFragmentView) 
                     R.string.username,
                     0,
                     null,
-                    "AZAHAR",
+                    "KITSUNE3DS",
                     10
                 )
             )

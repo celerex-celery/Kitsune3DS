@@ -1,5 +1,5 @@
 # Source: https://github.com/KDE/ffmpegthumbs/blob/master/cmake/FindFFmpeg.cmake
-# Modified for use in the Azahar Emulator project.
+# Modified for use in the Kitsune3DS Emulator project.
 # ----------------------------------------------------------------------------------
 #
 # - Try to find the required ffmpeg components(default: AVFORMAT, AVUTIL, AVCODEC)

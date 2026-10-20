@@ -45,7 +45,7 @@ jobs:
             const verified =
                 (body.includes(username) ||
                 (displayName && body.includes(displayName))) &&
-                body.includes('azahar');
+                body.includes('kitsune3ds');
 
             // Only reopen the PR and remove the label if verification succeeded
             if (verified) {

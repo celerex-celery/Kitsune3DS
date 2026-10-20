@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv3 or any later version
 // Refer to the LICENSE.txt file included.
 
@@ -313,7 +313,7 @@ enum class SystemInfoEmulatorInformation {
 enum class EmulatorIDs {
     NONE = 0,
     CITRA_EMULATOR = 1,
-    AZAHAR_EMULATOR = 2,
+    KITSUNE3DS_EMULATOR = 2,
 };
 
 /**
@@ -1867,7 +1867,7 @@ Result SVC::GetSystemInfo(s64* out, u32 type, s32 param) {
     case SystemInfoType::CITRA_INFORMATION:
         switch ((SystemInfoEmulatorInformation)param) {
         case SystemInfoEmulatorInformation::EMULATOR_ID:
-            *out = static_cast<s64>(EmulatorIDs::AZAHAR_EMULATOR);
+            *out = static_cast<s64>(EmulatorIDs::KITSUNE3DS_EMULATOR);
             break;
         case SystemInfoEmulatorInformation::HOST_TICK:
             *out = static_cast<s64>(std::chrono::duration_cast<std::chrono::nanoseconds>(

@@ -1,4 +1,4 @@
-// Copyright 2014-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2014-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -85,7 +85,7 @@ void LogSettings() {
         LOG_INFO(Config, "{}: {}", name, value);
     };
 
-    LOG_INFO(Config, "Azahar Configuration:");
+    LOG_INFO(Config, "Kitsune3DS Configuration:");
     log_setting("Core_UseCpuJit", values.use_cpu_jit.GetValue());
     log_setting("Core_UseFastInterp", values.use_fastinterp.GetValue());
     log_setting("Core_CPUClockPercentage", values.cpu_clock_percentage.GetValue());

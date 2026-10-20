@@ -1,4 +1,4 @@
-// Copyright 2018-2026 Citra Emulator Project / Azahar Emulator Project
+// Copyright 2018-2026 Citra Emulator Project / Kitsune3DS Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the misc/licenses/gplv2.txt file included.
 
@@ -371,7 +371,7 @@ void ConfigureMotionTouch::OnConfigureTouchFromButton() {
 
 bool ConfigureMotionTouch::CanCloseDialog() {
     if (udp_test_in_progress) {
-        QMessageBox::warning(this, QStringLiteral("Azahar"),
+        QMessageBox::warning(this, QStringLiteral("Kitsune3DS"),
                              tr("UDP Test or calibration configuration is in progress.<br>Please "
                                 "wait for them to finish."));
         return false;
