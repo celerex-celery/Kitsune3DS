@@ -38,6 +38,55 @@ namespace Vulkan {
 using namespace Pica::Shader::Generator;
 using namespace Pica::Shader;
 
+// Creates the Vulkan shader modules for the SPIR-V blobs that were read back from the
+// disk cache. Creating a shader module is a driver call that can take a noticeable
+// amount of time, so the work is spread over the shader worker threads instead of
+// being done one entry at a time on the thread that is loading the cache.
+template <typename ShaderMap>
+void CompileCachedSPIRV(ShaderMap& shader_map, const Instance& instance,
+                        Common::ThreadWorker& workers,
+                        std::vector<std::pair<u64, std::vector<u32>>>& pending) {
+    if (pending.empty()) {
+        return;
+    }
+
+    const vk::Device device = instance.GetDevice();
+
+    std::vector<std::pair<u64, Shader*>> queued;
+    queued.reserve(pending.size());
+
+    for (auto& [id, spirv] : pending) {
+        auto [it, is_new] = shader_map.try_emplace(id, instance);
+        if (!is_new) {
+            // An earlier entry already provided this shader.
+            continue;
+        }
+
+        // The pointer stays valid while the work is queued: the map is node based and
+        // no entries are removed until every queued compile has finished.
+        Shader* const shader = &it->second;
+        queued.emplace_back(id, shader);
+
+        workers.QueueWork([device, shader, spirv = std::move(spirv)]() {
+            shader->module = CompileSPV(spirv, device);
+            shader->MarkDone();
+        });
+    }
+
+    // The compiles run in parallel, so waiting for all of them at once is much
+    // faster than compiling them one after the other.
+    workers.WaitForRequests();
+
+    // Drop the shaders that failed to compile so that they are regenerated at
+    // runtime instead of being used in a broken state.
+    for (const auto& [id, shader] : queued) {
+        if (!shader->module) {
+            LOG_ERROR(Render_Vulkan, "Unexpected program compilation failure");
+            shader_map.erase(id);
+        }
+    }
+}
+
 static VideoCore::DiskResourceLoadCallback MakeThrottledCallback(
     VideoCore::DiskResourceLoadCallback original) {
 
@@ -570,6 +619,7 @@ bool ShaderDiskCache::InitVSCache(const std::atomic_bool& stop_loading,
                                   const VideoCore::DiskResourceLoadCallback& callback) {
     std::vector<size_t> pending_configs;
     std::unordered_map<u64, size_t> pending_programs;
+    std::vector<std::pair<u64, std::vector<u32>>> pending_spirv;
     std::unique_ptr<Pica::ShaderSetup> shader_setup;
     std::unique_ptr<CacheFile> regenerate_file;
 
@@ -675,27 +725,14 @@ bool ShaderDiskCache::InitVSCache(const std::atomic_bool& stop_loading,
                     MALFORMED_DISK_CACHE;
                 }
 
-                const u8* spirv_data = curr.Data().data();
-                const size_t spirv_size = curr.Data().size();
+                // The entry buffer is released as soon as we move on to the next entry,
+                // so keep a copy of the SPIR-V around until it gets compiled.
+                const auto& spirv_data = curr.Data();
+                std::vector<u32> spirv(reinterpret_cast<const u32*>(spirv_data.data()),
+                                       reinterpret_cast<const u32*>(spirv_data.data()) +
+                                           spirv_data.size() / sizeof(u32));
 
-                auto [iter_prog, new_program] =
-                    programmable_vertex_cache.try_emplace(curr.Id(), parent.instance);
-                if (new_program) {
-                    LOG_DEBUG(Render_Vulkan, "    compiling SPIRV.");
-
-                    const auto spirv = std::span<const u32>(
-                        reinterpret_cast<const u32*>(spirv_data), spirv_size / sizeof(u32));
-
-                    iter_prog->second.module = CompileSPV(spirv, parent.instance.GetDevice());
-                    iter_prog->second.MarkDone();
-
-                    if (!iter_prog->second.module) {
-                        // Compilation failed for some reason, remove from cache to let it
-                        // be re-generated at runtime or during config and program processing.
-                        LOG_ERROR(Render_Vulkan, "Unexpected program compilation failure");
-                        programmable_vertex_cache.erase(iter_prog);
-                    }
-                }
+                pending_spirv.emplace_back(curr.Id(), std::move(spirv));
             }
 
             if (callback) {
@@ -706,6 +743,10 @@ bool ShaderDiskCache::InitVSCache(const std::atomic_bool& stop_loading,
             MALFORMED_DISK_CACHE;
         }
     }
+
+    // Compile the cached SPIR-V in parallel before linking the configs to it.
+    CompileCachedSPIRV(programmable_vertex_cache, parent.instance, parent.shader_workers,
+                       pending_spirv);
 
     // Once we have all the shader instances created from SPIRV, we can link them to the VS configs.
     LOG_DEBUG(Render_Vulkan, "Linking with config entries.");
@@ -884,6 +925,7 @@ bool ShaderDiskCache::InitVSCache(const std::atomic_bool& stop_loading,
 bool ShaderDiskCache::InitFSCache(const std::atomic_bool& stop_loading,
                                   const VideoCore::DiskResourceLoadCallback& callback) {
     std::vector<std::pair<u64, size_t>> pending_configs;
+    std::vector<std::pair<u64, std::vector<u32>>> pending_spirv;
     std::unique_ptr<CacheFile> regenerate_file;
 
     auto cleanup_on_error = [&]() {
@@ -976,27 +1018,12 @@ bool ShaderDiskCache::InitFSCache(const std::atomic_bool& stop_loading,
                     MALFORMED_DISK_CACHE;
                 }
 
-                const u8* spirv_data = curr.Data().data();
-                const size_t spirv_size = curr.Data().size();
+                const auto& spirv_data = curr.Data();
+                std::vector<u32> spirv(reinterpret_cast<const u32*>(spirv_data.data()),
+                                       reinterpret_cast<const u32*>(spirv_data.data()) +
+                                           spirv_data.size() / sizeof(u32));
 
-                auto [iter_spirv, new_program] =
-                    fragment_shaders.try_emplace(curr.Id(), parent.instance);
-                if (new_program) {
-                    LOG_DEBUG(Render_Vulkan, "    compiling SPIRV.");
-
-                    const auto spirv = std::span<const u32>(
-                        reinterpret_cast<const u32*>(spirv_data), spirv_size / sizeof(u32));
-
-                    iter_spirv->second.module = CompileSPV(spirv, parent.instance.GetDevice());
-                    iter_spirv->second.MarkDone();
-
-                    if (!iter_spirv->second.module) {
-                        // Compilation failed for some reason, remove from cache to let it
-                        // be regenerated at runtime or during config processing.
-                        LOG_ERROR(Render_Vulkan, "Unexpected program compilation failure");
-                        fragment_shaders.erase(iter_spirv);
-                    }
-                }
+                pending_spirv.emplace_back(curr.Id(), std::move(spirv));
             }
 
             if (callback) {
@@ -1010,6 +1037,9 @@ bool ShaderDiskCache::InitFSCache(const std::atomic_bool& stop_loading,
 
     // Once we have all the shader instances created from SPIRV, we can link them to the FS configs.
     LOG_DEBUG(Render_Vulkan, "Linking with config entries.");
+
+    // Compile the cached SPIR-V in parallel before linking the configs to it.
+    CompileCachedSPIRV(fragment_shaders, parent.instance, parent.shader_workers, pending_spirv);
 
     for (auto& offset : pending_configs) {
         if (stop_loading) {
@@ -1101,6 +1131,7 @@ bool ShaderDiskCache::InitFSCache(const std::atomic_bool& stop_loading,
 bool ShaderDiskCache::InitGSCache(const std::atomic_bool& stop_loading,
                                   const VideoCore::DiskResourceLoadCallback& callback) {
     std::vector<std::pair<u64, size_t>> pending_configs;
+    std::vector<std::pair<u64, std::vector<u32>>> pending_spirv;
     std::unique_ptr<CacheFile> regenerate_file;
 
     auto cleanup_on_error = [&]() {
@@ -1209,27 +1240,12 @@ bool ShaderDiskCache::InitGSCache(const std::atomic_bool& stop_loading,
                     MALFORMED_DISK_CACHE;
                 }
 
-                const u8* spirv_data = curr.Data().data();
-                const size_t spirv_size = curr.Data().size();
+                const auto& spirv_data = curr.Data();
+                std::vector<u32> spirv(reinterpret_cast<const u32*>(spirv_data.data()),
+                                       reinterpret_cast<const u32*>(spirv_data.data()) +
+                                           spirv_data.size() / sizeof(u32));
 
-                auto [iter_spirv, new_program] =
-                    fixed_geometry_shaders.try_emplace(curr.Id(), parent.instance);
-                if (new_program) {
-                    LOG_DEBUG(Render_Vulkan, "    compiling SPIRV.");
-
-                    const auto spirv = std::span<const u32>(
-                        reinterpret_cast<const u32*>(spirv_data), spirv_size / sizeof(u32));
-
-                    iter_spirv->second.module = CompileSPV(spirv, parent.instance.GetDevice());
-                    iter_spirv->second.MarkDone();
-
-                    if (!iter_spirv->second.module) {
-                        // Compilation failed for some reason, remove from cache to let it
-                        // be regenerated at runtime or during config processing.
-                        LOG_ERROR(Render_Vulkan, "Unexpected program compilation failure");
-                        fixed_geometry_shaders.erase(iter_spirv);
-                    }
-                }
+                pending_spirv.emplace_back(curr.Id(), std::move(spirv));
             }
 
             if (callback) {
@@ -1243,6 +1259,10 @@ bool ShaderDiskCache::InitGSCache(const std::atomic_bool& stop_loading,
 
     // Once we have all the shader instances created from SPIRV, we can link them to the FS configs.
     LOG_DEBUG(Render_Vulkan, "Linking with config entries.");
+
+    // Compile the cached SPIR-V in parallel before linking the configs to it.
+    CompileCachedSPIRV(fixed_geometry_shaders, parent.instance, parent.shader_workers,
+                       pending_spirv);
 
     for (auto& offset : pending_configs) {
         if (stop_loading) {
